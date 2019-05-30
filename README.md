@@ -8,7 +8,13 @@ converting between a FDEP LIMS Browser export file into user-friendly formats an
 2. General – LIMS Browser
 3. Search by Project ID. *In database: If prior to current year -> Legacy*
 4. Build List -> GTM-NERR -> OK
+
+![Figure 1: LIMS Browser search for all GTM Nutrient sampling in 2017](images/figure1.jpeg)
+
 5. Report Files – Select Interested “Event” or “Events” – Select all jobs
+
+![Figure 2: Reports/File Formats and jobs lists in LIMS Browser](images/figure2.jpeg)
+
 6. Open template - "GTM_LIMS_V2" - OK # this is what I have named my template
 
 ### Need to create your own?
