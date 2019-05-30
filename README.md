@@ -13,7 +13,7 @@ converting between a FDEP LIMS Browser export file into user-friendly formats an
 
 5. Report Files – Select Interested “Event” or “Events” – Select all jobs
 
-![Figure 2: Reports/File Formats and jobs lists in LIMS Browser](/images/figure2.jpeg)
+![](figure2.jpeg)
 
 6. Open template - "GTM_LIMS_V2" - OK # this is what I have named my template
 
