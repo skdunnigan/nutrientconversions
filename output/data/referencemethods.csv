@@ -1,0 +1,46 @@
+"","component","reference.method","count"
+"1","2,4-D","EPA 8321B",11
+"2","2,4-D","USGS O-2060-01",1
+"3","Acetaminophen","EPA 8321B",11
+"4","Acetaminophen","USGS O-2060-01",1
+"5","Ammonia-N","EPA 350.1 Rev. 2.0",240
+"6","Bentazon","EPA 8321B",11
+"7","Bentazon","USGS O-2060-01",1
+"8","Carbamazepine","EPA 8321B",11
+"9","Carbamazepine","USGS O-2060-01",1
+"10","Chlorophyll-a, Corrected","SM 10200 H (mod.)",271
+"11","Chlorophyll-a, Modified Fluorometric","EPA 445.0 (mod)",36
+"12","Chlorophyll-a, Uncorrected","SM 10200 H (mod.)",271
+"13","Diuron","EPA 8321B",11
+"14","Diuron","USGS O-2060-01",1
+"15","Escherichia Coli-Quanti-Tray","SM 9223 Quanti-Tray",13
+"16","Fecal Coliforms-Membrane Filter","SM 9222 D",246
+"17","Fenuron","EPA 8321B",11
+"18","Fenuron","USGS O-2060-01",1
+"19","Fluridone","EPA 8321B",11
+"20","Fluridone","USGS O-2060-01",1
+"21","Hydrocodone","EPA 8321B",9
+"22","Ibuprofen","EPA 8321B",5
+"23","Imazapyr","EPA 8321B",10
+"24","Imidacloprid","EPA 8321B",11
+"25","Imidacloprid","USGS O-2060-01",1
+"26","Kjeldahl Nitrogen","EPA 351.2 Rev. 2.0",240
+"27","Linuron","EPA 8321B",11
+"28","Linuron","USGS O-2060-01",1
+"29","MCPP","EPA 8321B",11
+"30","MCPP","USGS O-2060-01",1
+"31","Naproxen","EPA 8321B",5
+"32","Nitrate-N","EPA 353.2 Rev. 2.0",239
+"33","Nitrite-N","EPA 353.2 Rev. 2.0",239
+"34","NO2NO3-N","EPA 353.2 Rev. 2.0",240
+"35","O-Phosphate-P","EPA 365.1 Rev. 2.0",239
+"36","Organic Carbon","SM 5310 B-00",228
+"37","Phaeophytin-a","SM 10200 H (mod.)",271
+"38","Primidone","EPA 8321B",11
+"39","Primidone","USGS O-2060-01",1
+"40","Pyraclostrobin","EPA 8321B",10
+"41","Sucralose","EPA 8321B",12
+"42","Total-P","EPA 365.1 Rev. 2.0",240
+"43","Triclopyr","EPA 8321B",11
+"44","Triclopyr","USGS O-2060-01",1
+"45","TSS","SM 2540 D-97",240
