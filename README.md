@@ -9,7 +9,7 @@ converting between a FDEP LIMS Browser export file into user-friendly formats an
 3. Search by Project ID. *In database: If prior to current year -> Legacy*
 4. Build List -> GTM-NERR -> OK
 
-![Figure 1: LIMS Browser search for all GTM Nutrient sampling in 2017](figure1.jpeg)
+![](figure1.jpeg)
 
 5. Report Files – Select Interested “Event” or “Events” – Select all jobs
 
