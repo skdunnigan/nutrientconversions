@@ -15,7 +15,7 @@ converting between a FDEP LIMS Browser export file into user-friendly formats an
 
 ![](/images/figure2.jpg)
 
-6. Open template - "GTM_LIMS_V2" - OK # this is what I have named my template
+6. Open template - "GTM_LIMS_V2" - OK *this is what I have named my template*
 
 ### Need to create your own?
 *Add the fields listed below from Available Fields box into the Selected Fields/Column Order box by highlighting the field of interest and clicking the plain text arrow -> to the right of the box. Using the bold arrow -> will add all available fields into the selected fields column. The selected fields need to be in the exact order listed below. The column order of the selected fields can be rearranged using the up and down arrows below the Selected Fields/Column Order box. Once the column order mirrors the listed column order below, clicking the bold arrow -> to the right of Selected Fields/Column Order box will add the selected fields into the Sort By box in the correct order. Template can be saved using the Save Template icon in the top of the browser window.*
