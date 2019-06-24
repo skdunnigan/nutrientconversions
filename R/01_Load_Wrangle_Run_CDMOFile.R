@@ -5,7 +5,7 @@ source('R/00_loadpackages.R')
 # --------------------------------------------------
 # load data file
 # --------------------------------------------------
-dat <- read_xlsx("data/LIMS.xlsx", sheet = "BrowseReportPage")
+dat <- read_xlsx("data/LIMS.xlsx", sheet = "BrowseReportPage") %>% janitor::clean_names()
 
 # trim out unnecessary columns
 dat2 <- select(dat, -X__1, -X__2, -X__3, 
@@ -15,16 +15,13 @@ dat2 <- select(dat, -X__1, -X__2, -X__3,
 # --------------------------------------------------
 # Create datetimestamp in POSIXct format
 # --------------------------------------------------
-dat2$datetimestamp<-as.POSIXct(strptime(dat2$`DATE SAMPLED`, 
+dat2$datetimestamp<-as.POSIXct(strptime(dat2$date_sampled, 
                                         "%d-%b-%Y %H:%M", tz='EST'))
-dat2$receivetime<-as.POSIXct(strptime(dat2$`DATE RECEIVED`, 
+dat2$receivetime<-as.POSIXct(strptime(dat2$date_received, 
                                       "%d-%b-%Y %H:%M", tz='EST'))
-dat2$analyzetime<-as.POSIXct(strptime(dat2$`DATE ANALYZED`, 
+dat2$analyzetime<-as.POSIXct(strptime(dat2$date_analyzed, 
                                       "%d-%b-%Y %H:%M", tz='EST'))
 
-# organize and remove spaces from column names
-names(dat2) <- tolower(names(dat2))
-names(dat2)<-make.names(names(dat2),unique = TRUE)
 # remove spaces from field names
 dat2$field.id <- gsub(" ","",dat2$field.id)
 
