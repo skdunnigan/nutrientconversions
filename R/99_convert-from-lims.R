@@ -27,19 +27,19 @@ dat$analyzetime<-as.POSIXct(strptime(dat$date_analyzed,
 # remove old dates from LIMS file
 # --------------------------------------------------
 dat2 <- dat %>%
-  mutate(field_id = tolower(field_id),
-         field_id = gsub(" ","", field_id),
-         site_location = tolower(site_location)) %>%
-  separate(temperature,
-           into = c("temperature", "tempunits"),
-           sep = "(\\s+)") %>%
-  separate(specific_conductance,
-           into = c("specificconductance", "spcunits"),
-           sep = "(\\s+)") %>%
-  separate(dissolved_o2,
-           into = c("dissolvedoxygen", "o2units"),
-           sep = "(\\s+)") %>%
-  select(-date_sampled, -date_received, -date_analyzed, -spcunits, -tempunits, -o2units)
+  dplyr::mutate(field_id = tolower(field_id),
+                field_id = gsub(" ","", field_id),
+                site_location = tolower(site_location)) %>%
+  tidyr::separate(temperature,
+                  into = c("temperature", "tempunits"),
+                  sep = "(\\s+)") %>%
+  tidyr::separate(specific_conductance,
+                  into = c("specificconductance", "spcunits"),
+                  sep = "(\\s+)") %>%
+  tidyr::separate(dissolved_o2,
+                  into = c("dissolvedoxygen", "o2units"),
+                  sep = "(\\s+)") %>%
+  dplyr::select(-date_sampled, -date_received, -date_analyzed, -spcunits, -tempunits, -o2units)
 
 # --------------------------------------------------
 # export as CSV file
