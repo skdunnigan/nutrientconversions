@@ -1,15 +1,10 @@
 # --------------------------------------------------
 # load libraries 
-library(lubridate)
-library(tidyverse) # cheat to load ggplot2, dplyr, tidyr, readr, forcats
-library(readxl)
-library(chron)
-library(reshape2)
-library(janitor)
-library(here)
+source('R/00_loadpackages.R')
 
 # --------------------------------------------------
-# load data file
+# load data file AS CSV <---
+# need to change name of datafile in code
 # --------------------------------------------------
 dat <- read.csv(here::here('data', '16-19_nutrients_pellicercreek_tschaefer.csv'), 
                 stringsAsFactors = FALSE ) %>% 
@@ -48,5 +43,6 @@ dat2 <- dat %>%
 
 # --------------------------------------------------
 # export as CSV file
+#### rename file whatever it needs to be named
 # --------------------------------------------------
 write.csv(dat2, here::here('output', 'reformattedfor_tschaefer.csv'))
