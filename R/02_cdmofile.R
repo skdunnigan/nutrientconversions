@@ -46,25 +46,40 @@ cdmo_dat <- dplyr::left_join(dat_nut, dat_rem, by = c("station_code", "date_samp
 rm(dat_nut, dat_rem)
 
 # ---------------------------------------------------
-# calculate total n, din, ton
+# calculate total n, din, ton, don
+# add in blank NA record columns for each
+# select parameters to keep
+# this is also a way to reorder the data to CDMO format
 # ---------------------------------------------------
-glimpse(cdmo_dat %>%
+cdmo_dat2 <- cdmo_dat %>%
   dplyr::mutate(TN = TKN + NO23F,
                 DIN = NH4F + NO23F,
-                TON = TKN + NH4F)
-)
-big_dat$tn <- big_dat$kjeldahl.nitrogen1 + big_dat$no2no3.n1
-big_dat$F_tn <- NA # blank column
-big_dat$din <- big_dat$ammonia.n1 + big_dat$no2no3.n1
-big_dat$F_din <- NA # blank column
-big_dat$ton <- big_dat$kjeldahl.nitrogen1 - big_dat$ammonia.n1
-big_dat$F_ton <- NA # blank column
-big_dat$F_wtemp_n <- NA # blank column
-big_dat$F_spcond_n <- NA # blank column
-big_dat$F_do_n <- NA # blank column
-big_dat$F_ph <- NA # blank column
-big_dat$secchi <- NA # blank column
-big_dat$F_secchi <- NA # blank column
-big_dat$F_Record <- NA # blank column
-big_dat$don <- big_dat$kjeldahl.nitrogen.filtered1 - big_dat$ammonia.n1
-big_dat$F_don <- NA # blank column
+                TON = TKN + NH4F,
+                DON = TKN_F - NH4F,
+                F_TN = NA,
+                F_DIN = NA,
+                F_TON = NA,
+                F_DON = NA,
+                F_Record = NA) %>%
+  dplyr::select(station_code, date_sampled, monitoringprogram, replicate, F_Record,
+                PO4F, F_PO4F,
+                TP, F_TP,
+                NH4F, F_NH4F,
+                NO2F, F_NO2F,
+                NO3F, F_NO3F,
+                NO23F, F_NO23F,
+                DIN, F_DIN,
+                TN, F_TN,
+                TKN, F_TKN,
+                TON, F_TON,
+                CHLA_N, F_CHLA_N,
+                CHLAF, F_CHLAF,
+                UncCHLA_N, F_UncCHLA_N,
+                PHEA, F_PHEA,
+                TSS, F_TSS,
+                FECCOL_CFU, F_FECCOL_CFU,
+                ECOLI_MPN, F_ECOLI_MPN,
+                ENTERO, F_ENTERO,
+                DOC, F_DOC,
+                TKN_F, F_TKN_F,
+                DON, F_DON)
