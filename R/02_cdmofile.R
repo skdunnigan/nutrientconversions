@@ -23,6 +23,12 @@ dat_rem <- dat2 %>%
                      names_from = F_cdmo_name,
                      values_from = remark)
 
+dat_env <- env2 %>%
+  dplyr::select(station_code, date_sampled, cdmo_name, result) %>%
+  tidyr::pivot_wider(id_cols = c('station_code', 'date_sampled'), 
+                     names_from = cdmo_name,
+                     values_from = result)
+
 # ---------------------------------------------------
 # merge both wide dataframes into one
 # pull out cdmo information of 
@@ -39,3 +45,26 @@ cdmo_dat <- dplyr::left_join(dat_nut, dat_rem, by = c("station_code", "date_samp
 # remove other dataframes from environment
 rm(dat_nut, dat_rem)
 
+# ---------------------------------------------------
+# calculate total n, din, ton
+# ---------------------------------------------------
+glimpse(cdmo_dat %>%
+  dplyr::mutate(TN = TKN + NO23F,
+                DIN = NH4F + NO23F,
+                TON = TKN + NH4F)
+)
+big_dat$tn <- big_dat$kjeldahl.nitrogen1 + big_dat$no2no3.n1
+big_dat$F_tn <- NA # blank column
+big_dat$din <- big_dat$ammonia.n1 + big_dat$no2no3.n1
+big_dat$F_din <- NA # blank column
+big_dat$ton <- big_dat$kjeldahl.nitrogen1 - big_dat$ammonia.n1
+big_dat$F_ton <- NA # blank column
+big_dat$F_wtemp_n <- NA # blank column
+big_dat$F_spcond_n <- NA # blank column
+big_dat$F_do_n <- NA # blank column
+big_dat$F_ph <- NA # blank column
+big_dat$secchi <- NA # blank column
+big_dat$F_secchi <- NA # blank column
+big_dat$F_Record <- NA # blank column
+big_dat$don <- big_dat$kjeldahl.nitrogen.filtered1 - big_dat$ammonia.n1
+big_dat$F_don <- NA # blank column
