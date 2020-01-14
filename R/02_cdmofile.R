@@ -1,8 +1,6 @@
 # to create the CDMO output data file
 
-# ---------------------------------------------------
-# split into multiple dataframes 
-# ---------------------------------------------------
+# ----01 split into multiple dataframes----
 # just nutrient analysis data
 # make data wide to fit CDMO format
 dat_nut <- dat2 %>% 
@@ -29,11 +27,8 @@ dat_env <- env2 %>%
                      names_from = cdmo_name,
                      values_from = result)
 
-# ---------------------------------------------------
-# merge both wide dataframes into one
-# pull out cdmo information of 
-## station code, monitoring program, and replicate
-# ---------------------------------------------------
+# ----02 merge both wide dataframes into one----
+# pull out cdmo information of station code, monitoring program, and replicate
 cdmo_dat <- dplyr::left_join(dat_nut, dat_rem, by = c("station_code", "date_sampled")) %>%
   tidyr::separate(station_code, 
            into = c("station_code", "num"), 
@@ -45,12 +40,11 @@ cdmo_dat <- dplyr::left_join(dat_nut, dat_rem, by = c("station_code", "date_samp
 # remove other dataframes from environment
 rm(dat_nut, dat_rem)
 
-# ---------------------------------------------------
-# calculate total n, din, ton, don
+# ----03 calculate total n, din, ton, don/reorder dataframe format----
 # add in blank NA record columns for each
 # select parameters to keep
 # this is also a way to reorder the data to CDMO format
-# ---------------------------------------------------
+
 cdmo_dat2 <- cdmo_dat %>%
   dplyr::mutate(TN = TKN + NO23F,
                 DIN = NH4F + NO23F,
@@ -60,8 +54,10 @@ cdmo_dat2 <- cdmo_dat %>%
                 F_DIN = NA,
                 F_TON = NA,
                 F_DON = NA,
-                F_Record = NA) %>%
-  dplyr::select(station_code, date_sampled, monitoringprogram, replicate, F_Record,
+                F_Record = NA,
+                datetimestamp = date_sampled) %>%
+  dplyr::select(station_code, datetimestamp, 
+                monitoringprogram, replicate, F_Record,
                 PO4F, F_PO4F,
                 TP, F_TP,
                 NH4F, F_NH4F,
@@ -83,3 +79,15 @@ cdmo_dat2 <- cdmo_dat %>%
                 DOC, F_DOC,
                 TKN_F, F_TKN_F,
                 DON, F_DON)
+
+# ----04 export file as cdmo format----
+# NOTE: this file is used to run with the NERRS QAQC Macro and therefore is easier without the NAs. So, the output file will have all of the NAs replaced with blanks.
+# replace all NAs with blanks
+# this is a new dataframe because it will make everything factors
+# this is JUST to export the data into a csv without NAs
+cdmo_dat3 <- sapply(cdmo_dat2, as.character)
+cdmo_dat3[is.na(cdmo_dat3)] <- " "
+cdmo_dat3<-as.data.frame(cdmo_dat3)
+write.csv(cdmo_dat3, here::here('output', 'data', '2019_cdmo_format.csv'))
+
+rm(cdmo_dat, cdmo_dat2, cdmo_dat3)
