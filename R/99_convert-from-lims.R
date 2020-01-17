@@ -6,7 +6,7 @@ source('R/00_loadpackages.R')
 # load data file AS CSV <---
 # need to change name of datafile in code
 # --------------------------------------------------
-dat <- read.csv(here::here('data', '16-19_nutrients_pellicercreek_tschaefer.csv'), 
+dat <- read.csv(here::here('data', 'fromLIMS', 'q4.csv'), 
                 stringsAsFactors = FALSE ) %>% 
   janitor::clean_names()
 
@@ -30,6 +30,7 @@ dat2 <- dat %>%
   dplyr::mutate(field_id = tolower(field_id),
                 field_id = gsub(" ","", field_id),
                 site_location = tolower(site_location)) %>%
+  dplyr::select(-x, -x_1, -x_2, -x_3, -x_4, -x_5) %>% # THIS MAY NEED TO BE UPDATED
   tidyr::separate(temperature,
                   into = c("temperature", "tempunits"),
                   sep = "(\\s+)") %>%
@@ -45,4 +46,4 @@ dat2 <- dat %>%
 # export as CSV file
 #### rename file whatever it needs to be named
 # --------------------------------------------------
-write.csv(dat2, here::here('output', 'reformattedfor_tschaefer.csv'))
+write.csv(dat2, here::here('output', 'data', 'fromLIMS', 'q4.csv'))

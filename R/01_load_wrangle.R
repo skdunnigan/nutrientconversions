@@ -7,14 +7,14 @@ source('R/00_loadpackages.R')
 # load file with CDMO SWMP names
 # load GTMNERR SWMP field data
 # --------------------------------------------------
-dat <- readxl::read_xlsx(here::here('data', '2019_Nutrients_10.1.xlsx'), 
+dat <- readxl::read_xlsx(here::here('data', '2019_Nutrients_12.xlsx'), 
                  sheet = "Chemistry") %>% 
   janitor::clean_names()
 
 names <- readr::read_csv(here::here('data', 'componentnames.csv')) %>%
   janitor::clean_names()
 
-env <- readxl::read_xlsx(here::here('data', '2019_Nutrients_10.1.xlsx'), 
+env <- readxl::read_xlsx(here::here('data', '2019_Nutrients_12.xlsx'), 
                          sheet = "Enviro") %>% 
   janitor::clean_names()
 
