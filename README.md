@@ -1,5 +1,16 @@
-# LIMS Nutrient File Conversions
-converting between a FDEP LIMS Browser export file into user-friendly formats and those used for NERRS nutrient QAQC
+# Nutrient File Conversions and Analysis
+code for working with data from FDEP LIMS Browser to convert to NERRS formats for QAQC and perform basic summary and analysis
+
+## The Workflow
+
+1. Download data file from LIMS (exports as a .XML sheet) and instructions are below.
+2. Open .xml file in MS Excel, remove background and top two rows. Save file as .csv.
+3. Use R to convert the LIMS formats into friendlier formats. 
+*this may be where it stops if data is just to be stored and shared from LIMS*
+4. Using data exported from R, add it into the running data for SWMP at GTMNERR stored as .xlsx file. This requires copy & paste at this point in time. 
+*will work on code to make this process easier*
+5. When ready for QAQC submission or analysis, open R and run codes.
+
 
 ## Step One: LIMS Browser Template Export
 *these are the steps for those with LIMS Browser access and using GTM-NERR as example*
