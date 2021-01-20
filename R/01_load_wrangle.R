@@ -45,3 +45,12 @@ env2 <- env %>%
                 cdmo_name = component_short)
 
 rm(names)
+
+# ----create a new df for analysis and graphics----
+dat3 <- dat2 %>%
+  tidyr::separate(station_code, 
+                  into = c("station_code", "num"), 
+                  sep = "(?<=[A-Za-z])(?=[0-9])") %>%
+  tidyr::separate(num,
+                  into = c("monitoringprogram", "replicate"),
+                  sep = "[.]")
