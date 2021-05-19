@@ -7,7 +7,7 @@ fecal coliforms-membrane filter,FECCOL_CFU
 organic carbon,DOC
 tss,TSS
 ammonia-n,NH4F
-"kjeldahl nitrogen, filtered",TKN_F
+"kjeldahl nitrogen, dissolved",TKN_F
 kjeldahl nitrogen,TKN
 total-p,TP
 escherichia coli-quanti-tray,ECOLI_MPN
