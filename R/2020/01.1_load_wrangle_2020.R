@@ -280,7 +280,8 @@ cdmo_dat2 <- cdmo_dat %>%
                 ENTERO, F_ENTERO,
                 DOC, F_DOC,
                 TKN_F, F_TKN_F,
-                DON, F_DON)
+                DON, F_DON,
+                Turb, F_Turb)
 
 # ----04 export file as cdmo format----
 # NOTE: this file is used to run with the NERRS QAQC Macro and therefore is easier without the NAs. So, the output file will have all of the NAs replaced with blanks.
